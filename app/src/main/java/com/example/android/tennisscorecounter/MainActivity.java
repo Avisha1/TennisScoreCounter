@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import model.Player;
 
@@ -49,11 +50,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void addPointPlayerA(View view) {
         playerA.addGamePoint(playerB);
+
+        if(playerA.isWon()){
+            Toast.makeText(this, "Player A Won!!", Toast.LENGTH_LONG).show();
+        }
+
         showScoreOnScreen();
     }
 
     public void addPointPlayerB(View view) {
         playerB.addGamePoint(playerA);
+
+        if(playerB.isWon()){
+            Toast.makeText(this, "Player B Won!!", Toast.LENGTH_LONG).show();
+        }
+
         showScoreOnScreen();
     }
 

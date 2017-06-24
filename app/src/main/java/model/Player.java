@@ -9,6 +9,8 @@ import interfaces.PlayerInterface;
 
 public class Player implements PlayerInterface {
 
+    private Boolean matchWinner = false;
+
     private int wonSets = 0;
     private int wonGames = 0;
     private int serveFouls = 0;
@@ -90,7 +92,7 @@ public class Player implements PlayerInterface {
 
     @Override
     public void winMatch() {
-        //do something
+        matchWinner = true;
     }
 
     @Override
@@ -99,6 +101,7 @@ public class Player implements PlayerInterface {
         pointIndex = GamePoints.POINTS_ZERO;
         wonGames = 0;
         wonSets = 0;
+        matchWinner = false;
     }
 
     @Override
@@ -141,5 +144,9 @@ public class Player implements PlayerInterface {
 
     public int getServeFouls() {
         return serveFouls;
+    }
+
+    public Boolean isWon(){
+        return matchWinner;
     }
 }
